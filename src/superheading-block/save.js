@@ -5,8 +5,8 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  *
  * The <small> elements containing the subheading and superheading are added to
  * the DOM conditionally.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ * @param {Object} attr            - The attribute methods for the Edit component
+ * @param {Object} attr.attributes - The attribute getter
  *
  * @return {Element} Element to render.
  */
@@ -19,17 +19,19 @@ export default function save( { attributes } ) {
 			{ ...useBlockProps.save() }
 			className={ 'has-text-align-' + attributes.textAlign }
 		>
-			{ ! RichText.isEmpty(attributes.kickerText) &&
-			<small className='superheading__kicker'>
-				<RichText.Content value={ attributes.kickerText } />
-			</small> }
-			<span className='superheading__main'>
+			{ ! RichText.isEmpty( attributes.kickerText ) && (
+				<small className="superheading__kicker">
+					<RichText.Content value={ attributes.kickerText } />
+				</small>
+			) }
+			<span className="superheading__main">
 				<RichText.Content value={ attributes.mainHeadingText } />
 			</span>
-			{ ! RichText.isEmpty(attributes.subheadingText) &&
-			<small className='superheading__subheading'>
-				<RichText.Content value={ attributes.subheadingText } />
-			</small> }
+			{ ! RichText.isEmpty( attributes.subheadingText ) && (
+				<small className="superheading__subheading">
+					<RichText.Content value={ attributes.subheadingText } />
+				</small>
+			) }
 		</TagName>
 	);
 }

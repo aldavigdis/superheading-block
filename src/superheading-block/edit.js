@@ -17,7 +17,9 @@ import {
  *
  * Heading levels and text alignment are set for the whole block.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ * @param {Object} attr               - The attribute methods for the Edit component
+ * @param {Object} attr.attributes    - The attribute getter
+ * @param {Object} attr.setAttributes - The attribute setter
  *
  * @return {Element} Element to render.
  */
@@ -26,9 +28,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	return (
 		<>
-			<BlockControls
-				group='block'
-			>
+			<BlockControls group="block">
 				<HeadingLevelDropdown
 					value={ attributes.level }
 					onChange={ ( newLevel ) =>
@@ -48,28 +48,37 @@ export default function Edit( { attributes, setAttributes } ) {
 				className={ 'has-text-align-' + attributes.textAlign }
 			>
 				<RichText
-					className='superheading__kicker'
+					className="superheading__kicker"
 					tagName="small"
-					value={attributes.kickerText}
-					placeholder={ __( 'Add pre-heading...', 'aldavigdis-superheading-block' ) }
+					value={ attributes.kickerText }
+					placeholder={ __(
+						'Add pre-heading…',
+						'aldavigdis-superheading-block'
+					) }
 					onChange={ ( newKicker ) =>
 						setAttributes( { kickerText: newKicker } )
 					}
 				/>
 				<RichText
-					className='superheading__main'
+					className="superheading__main"
 					tagName="span"
-					value={attributes.mainHeadingText}
-					placeholder={ __( 'Add heading...', 'aldavigdis-superheading-block' ) }
+					value={ attributes.mainHeadingText }
+					placeholder={ __(
+						'Add heading…',
+						'aldavigdis-superheading-block'
+					) }
 					onChange={ ( newMainHeading ) =>
 						setAttributes( { mainHeadingText: newMainHeading } )
 					}
 				/>
 				<RichText
-					className='superheading__subheading'
+					className="superheading__subheading"
 					tagName="small"
-					value={attributes.subheadingText}
-					placeholder={ __( 'Add sub-heading...', 'aldavigdis-superheading-block' ) }
+					value={ attributes.subheadingText }
+					placeholder={ __(
+						'Add sub-heading…',
+						'aldavigdis-superheading-block'
+					) }
 					onChange={ ( newSubheading ) =>
 						setAttributes( { subheadingText: newSubheading } )
 					}
