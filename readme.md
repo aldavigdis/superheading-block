@@ -6,6 +6,8 @@ If you want to get things right, headings can get tricky when you have both subh
 
 Current web standards recommend the use of the `<hgroup>` element but this block demonstrates the use of plain-and-simple heading elements, maintains the heading hierarchy and ensures accessibility, while also facilitating typographical hierarchy.
 
+<img src="https://github.com/aldavigdis/superheading-block/blob/main/assets/screenshot-1.png?raw=true" width="600" height="383" alt="A screenshot of the block in use in the editor, showing a book title as the main heading, the series it belongs to as the superheading and a subtitle." />
+
 ## Downloads
 
 Zip-builds are provided under [Releases](https://github.com/aldavigdis/superheading-block/releases).
