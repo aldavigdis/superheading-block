@@ -10,9 +10,9 @@ Add accessible headings for the WordPress Block Editor with superheadings and su
 
 == Description ==
 
-Headings can get tricky when you have both subheadings and a uperheading above the main heading.
+If you want to get things right, headings can get tricky when you have both subheadings and an overheading above the main heading.
 
-Current web standards recommend the use of the `<hgroup>` element but this block demonstrates the use of plain-and-simple heading elements, which maintains the heading hierarchy and ensures accessibility.
+Current web standards recommend the use of the `<hgroup>` element but this block demonstrates the use of plain-and-simple heading elements, which maintains the heading hierarchy and ensures accessibility, while also facilitating typographical hierarchy.
 
 == Screenshots ==
 
