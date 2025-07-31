@@ -1,0 +1,11 @@
+/**
+ * Conditionally display the placeholder text for the <small> elements when the
+ * block is not selected in the editor.
+ */
+[data-type="aldavigdis-superheading/superheading-block"] small:has([data-rich-text-placeholder]) {
+	display: none;
+}
+
+[data-type="aldavigdis-superheading/superheading-block"]:focus-within small {
+	display: block;
+}

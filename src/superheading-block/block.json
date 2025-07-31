@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "aldavigdis-superheading/superheading-block",
+	"version": "0.1.0",
+	"title": "Superheading by Alda",
+	"category": "widgets",
+	"icon": "heading",
+	"description": "Example block scaffolded with Create Block tool.",
+	"textdomain": "aldavigdis-superheading",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"level": {
+			"type": "string",
+			"default": "2"
+		},
+		"algign": {
+			"type": "string",
+			"default": "left"
+		},
+		"mainHeadingText": {
+			"type": "string",
+			"selector": ".superheading__main"
+		},
+		"kickerText": {
+			"type": "string",
+			"selector": ".superheading__kicker"
+		},
+		"subheadingText": {
+			"type": "string",
+			"selector": ".superheading__subheading"
+		}
+	}
+}

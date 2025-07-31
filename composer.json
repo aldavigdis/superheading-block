@@ -1,0 +1,37 @@
+{
+    "name": "aldavigdis/superheading-block",
+    "description": "Add accessible headings for the WordPress Block Editor with superheadings and subheadings",
+    "type": "wordpress-plugin",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.13",
+        "wp-coding-standards/wpcs": "^3.2",
+        "slevomat/coding-standard": "^8.20",
+        "phpcompatibility/php-compatibility": "^9.3",
+		"wordpress/wordpress-develop": "6.8.2"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wordpress/wordpress-develop",
+                "version": "6.8.2",
+                "dist": {
+                    "url": "https://github.com/WordPress/wordpress-develop/archive/refs/tags/6.8.2.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Alda Vigdís Skarphéðinsdóttir",
+            "email": "aldavigdis@aldavigdis.is"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
