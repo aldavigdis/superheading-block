@@ -33,5 +33,26 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "scripts": {
+        "shell:bash": [
+            "Composer\\Config::disableProcessTimeout",
+            "docker exec -it $(docker-compose ps -q | head -n 1) bash"
+        ],
+        "shell:local": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/psysh"
+        ],
+        "shell:wp": [
+            "Composer\\Config::disableProcessTimeout",
+            "docker exec -it $(docker-compose ps -q | head -n 1) wp shell --allow-root"
+        ],
+        "debug:tail": [
+            "Composer\\Config::disableProcessTimeout",
+            "docker exec -it $(docker-compose ps -q | head -n 1) tail -f /tmp/wp-errors.log"
+        ],
+        "lint": "./vendor/bin/phpcs -s ./src/ ./*.php",
+        "lint:fix": "./vendor/bin/phpcbf -s ./src/ ./*.php",
+        "zip:release": "npm run plugin-zip"
     }
 }
