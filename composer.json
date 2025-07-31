@@ -53,6 +53,6 @@
         ],
         "lint": "./vendor/bin/phpcs -s ./src/ ./*.php",
         "lint:fix": "./vendor/bin/phpcbf -s ./src/ ./*.php",
-        "zip:release": "npm run plugin-zip"
+        "zip:release": "rm -rf vendor && composer install --no-dev && npm run plugin-zip"
     }
 }
