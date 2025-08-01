@@ -6,6 +6,8 @@ If you want to get things right, headings can get tricky when you have both subh
 
 Current web standards recommend the use of the `<hgroup>` element but this block demonstrates the use of plain-and-simple heading elements, maintains the heading hierarchy and ensures accessibility, while also facilitating typographical hierarchy.
 
+In a [2025 blog post](https://aldavigdis.dev/2025/07/25/taming-html-headings-subheadings-and-overlines/), I argued that the `<hgroup>` element was redundant and that the same could be achieved in a semantic and accessible manner using a single heading element with `<small>` elements nested inside without breaking the heading hierarchy. This demonstrates that way of doing things.
+
 <img src="https://github.com/aldavigdis/superheading-block/blob/main/assets/screenshot-1.png?raw=true" width="600" height="383" alt="A screenshot of the block in use in the editor, showing a book title as the main heading, the series it belongs to as the superheading and a subtitle." />
 
 ## Downloads
