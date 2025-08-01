@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name:       Alda's Superheading Block
+ * Plugin Name:       Superheading Block
  * Description:       Accessible headings for the WordPress Block Editor with subheadings and kickers.
  * Version:           0.1.0
  * Requires at least: 6.8
  * Requires PHP:      8.1
- * Author:            Alda Vigdís Skarphéðinsdóttir
+ * Author:            Alda Vigdís
  * Author URI:        https://aldavigdis.is
  * License:           GPL-3.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

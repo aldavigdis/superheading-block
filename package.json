@@ -2,7 +2,7 @@
 	"name": "aldavigdis-superheading-block",
 	"version": "0.1.0",
 	"description": "Alda's Superheading Block",
-	"author": "Alda Vigdís",
+	"author": "Alda Vigdís Skarphéðinsdóttir",
 	"license": "GPL-3.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
