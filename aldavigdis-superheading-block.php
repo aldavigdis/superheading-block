@@ -6,6 +6,7 @@
  * Requires at least: 6.8
  * Requires PHP:      8.1
  * Author:            Alda Vigdís Skarphéðinsdóttir
+ * Author URI:        https://aldavigdis.is
  * License:           GPL-3.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       aldavigdis-superheading-block
