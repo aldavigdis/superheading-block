@@ -32,7 +32,7 @@ Zip-builds are provided under [Releases](https://github.com/aldavigdis/superhead
 
 ## License
 
-This plugin is provided to you as free software under the GPLv3 license. Runtime dependencies are provided under the MIT and Apache licenses, which are compatible with the GPLv3.
+This plugin is provided to you as free software under the GPLv3 license. Some runtime dependencies may be provided under the MIT and Apache licenses, which are compatible with the GPLv3.
 
 Alda's Superheading Block
 
