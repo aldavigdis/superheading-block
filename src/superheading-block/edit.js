@@ -7,6 +7,7 @@ import {
 	BlockControls,
 	HeadingLevelDropdown,
 	AlignmentControl,
+	useBlockEditingMode
 } from '@wordpress/block-editor';
 
 /**
@@ -24,28 +25,31 @@ import {
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const TagName = 'h' + attributes.level;
+	const blockEditingMode = useBlockEditingMode();
+	const blockProps       = useBlockProps();
+	const TagName          = 'h' + attributes.level;
 
 	return (
 		<>
-			<BlockControls group="block">
-				<HeadingLevelDropdown
-					value={ attributes.level }
-					onChange={ ( newLevel ) =>
-						setAttributes( { level: newLevel } )
-					}
-				/>
-				<AlignmentControl
-					value={ attributes.textAlign }
-					onChange={ ( newAlign ) =>
-						setAttributes( { textAlign: newAlign } )
-					}
-				/>
-			</BlockControls>
-
+			{ blockEditingMode === 'default' && (
+				<BlockControls group="block">
+					<HeadingLevelDropdown
+						value={ attributes.level }
+						onChange={ ( newLevel ) =>
+							setAttributes( { level: newLevel } )
+						}
+					/>
+					<AlignmentControl
+						value={ attributes.textAlign }
+						onChange={ ( newAlign ) =>
+							setAttributes( { textAlign: newAlign } )
+						}
+					/>
+				</BlockControls>
+			) }
 			<TagName
-				{ ...useBlockProps() }
 				className={ 'has-text-align-' + attributes.textAlign }
+				{ ...blockProps }
 			>
 				<RichText
 					className="superheading__kicker"
