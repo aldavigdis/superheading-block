@@ -4,7 +4,7 @@ Tags:              block, headings, subheadings, superheadings
 Requires at least: 6.8
 Tested up to:      6.8
 Requires PHP:      8.1
-Stable tag:        0.1.0
+Stable tag:        0.1.1
 License:           GPL-3.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,6 +21,9 @@ Current web standards recommend the use of the `<hgroup>` element but this block
 1. The block in use in the Block Editor.
 
 == Changelog ==
+
+= 0.1.1 =
+* Bugfix Release - Block text could not be edited when used as an inner block
 
 = 0.1.0 =
 * Initial Release

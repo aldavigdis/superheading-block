@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "aldavigdis-superheading/superheading-block",
-	"version": "0.1.0",
+	"name": "aldavigdis/superheading-block",
+	"version": "0.1.1",
 	"title": "Superheading by Alda",
 	"category": "widgets",
 	"description": "Accessible headings for the WordPress Block Editor with superheadings and subheadings.",

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Superheading Block
  * Description:       Accessible headings for the WordPress Block Editor with subheadings and kickers.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.8
  * Requires PHP:      8.1
  * Author:            Alda Vigdís
