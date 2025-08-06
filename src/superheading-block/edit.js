@@ -1,14 +1,76 @@
 import './editor.scss';
 
 import { __ } from '@wordpress/i18n';
+
 import {
 	useBlockProps,
 	RichText,
 	BlockControls,
 	HeadingLevelDropdown,
 	AlignmentControl,
-	useBlockEditingMode
+	useBlockEditingMode,
+	InspectorControls,
 } from '@wordpress/block-editor';
+
+import {
+	PanelBody,
+	TextControl,
+	ToggleControl
+} from '@wordpress/components';
+
+function TextContent( { attributes, setAttributes } ) {
+	const allowedFormats   = [ 'core/bold', 'core/italic', 'core/language' ]
+
+	return (
+		<>
+			<RichText
+				className="superheading__kicker"
+				tagName="small"
+				value={ attributes.kickerText }
+				placeholder={ __(
+					'Add pre-heading…',
+					'aldavigdis-superheading-block'
+				) }
+				onChange={ ( newKicker ) =>
+					setAttributes( { kickerText: newKicker } )
+				}
+				onReplace={() => {}}
+				multiline={false}
+				allowedFormats={allowedFormats}
+			/>
+			<RichText
+				className="superheading__main"
+				tagName="span"
+				value={ attributes.mainHeadingText }
+				placeholder={ __(
+					'Add heading…',
+					'aldavigdis-superheading-block'
+				) }
+				onChange={ ( newMainHeading ) =>
+					setAttributes( { mainHeadingText: newMainHeading } )
+				}
+				onReplace={() => {}}
+				multiline={false}
+				allowedFormats={allowedFormats}
+			/>
+			<RichText
+				className="superheading__subheading"
+				tagName="small"
+				value={ attributes.subheadingText }
+				placeholder={ __(
+					'Add sub-heading…',
+					'aldavigdis-superheading-block'
+				) }
+				onChange={ ( newSubheading ) =>
+					setAttributes( { subheadingText: newSubheading } )
+				}
+				onReplace={() => {}}
+				multiline={false}
+				allowedFormats={allowedFormats}
+			/>
+		</>
+	);
+}
 
 /**
  * Render the editor component
@@ -26,11 +88,51 @@ import {
  */
 export default function Edit( { attributes, setAttributes } ) {
 	const blockEditingMode = useBlockEditingMode();
-	const blockProps       = useBlockProps();
 	const TagName          = 'h' + attributes.level;
+
+	const blockProps = useBlockProps( {
+		className: 'has-text-align-' + attributes.textAlign
+	} );
 
 	return (
 		<>
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Hyperlink', 'aldavigdis-superheading-block' ) }
+				>
+					<TextControl
+						__next40pxDefaultSize={ true }
+						__nextHasNoMarginBottom={ true }
+						className="superheading__input-href"
+						value={ attributes.href }
+						label={ __(
+							'Web Address',
+							'aldavigdis-superheading-block'
+						) }
+						type='url'
+						help={ __(
+							"If set, the heading will link to this URL. Don't forget to prefix it with https:// or mailto: if needed.",
+							'aldavigdis-superheading-block'
+						) }
+						onChange={ ( newHref ) =>
+							setAttributes( { href: newHref } )
+						}
+					/>
+					<ToggleControl
+						__nextHasNoMarginBottom={ true }
+						label={ __(
+							'Open in new window',
+							'aldavigdis-superheading-block'
+						) }
+						checked={ attributes.linkToNewWindow }
+						onChange={ ( newLinkToNewWindow ) =>
+							setAttributes(
+								{ linkToNewWindow: newLinkToNewWindow }
+							)
+						}
+					/>
+				</PanelBody>
+			</InspectorControls>
 			{ blockEditingMode === 'default' && (
 				<BlockControls group="block">
 					<HeadingLevelDropdown
@@ -48,45 +150,25 @@ export default function Edit( { attributes, setAttributes } ) {
 				</BlockControls>
 			) }
 			<TagName
-				className={ 'has-text-align-' + attributes.textAlign }
 				{ ...blockProps }
 			>
-				<RichText
-					className="superheading__kicker"
-					tagName="small"
-					value={ attributes.kickerText }
-					placeholder={ __(
-						'Add pre-heading…',
-						'aldavigdis-superheading-block'
-					) }
-					onChange={ ( newKicker ) =>
-						setAttributes( { kickerText: newKicker } )
-					}
-				/>
-				<RichText
-					className="superheading__main"
-					tagName="span"
-					value={ attributes.mainHeadingText }
-					placeholder={ __(
-						'Add heading…',
-						'aldavigdis-superheading-block'
-					) }
-					onChange={ ( newMainHeading ) =>
-						setAttributes( { mainHeadingText: newMainHeading } )
-					}
-				/>
-				<RichText
-					className="superheading__subheading"
-					tagName="small"
-					value={ attributes.subheadingText }
-					placeholder={ __(
-						'Add sub-heading…',
-						'aldavigdis-superheading-block'
-					) }
-					onChange={ ( newSubheading ) =>
-						setAttributes( { subheadingText: newSubheading } )
-					}
-				/>
+				{ ( attributes.href == '' ) && (
+					<TextContent
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				) }
+				{ ( attributes.href != '' ) && (
+					<a
+						href="#"
+						onClick={ ( e ) => { e.preventDefault() } }
+					>
+						<TextContent
+							attributes={ attributes }
+							setAttributes={ setAttributes }
+						/>
+					</a>
+				) }
 			</TagName>
 		</>
 	);

@@ -15,10 +15,10 @@
 			"type": "string",
 			"default": "2"
 		},
-		"algign": {
-			"type": "string",
-			"default": "left"
-		},
+        "textAlign": {
+            "type": "string",
+            "default": "left"
+        },
 		"mainHeadingText": {
 			"type": "string",
 			"selector": ".superheading__main"
@@ -30,6 +30,17 @@
 		"subheadingText": {
 			"type": "string",
 			"selector": ".superheading__subheading"
-		}
-	}
+		},
+        "href": {
+            "type": "string",
+            "default": ""
+        },
+        "linkToNewWindow": {
+            "type": "boolean",
+            "default": false
+        }
+	},
+    "supports": {
+        "splitting": true
+    }
 }

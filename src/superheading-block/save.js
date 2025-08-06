@@ -1,5 +1,25 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
+function TextContent( { attributes } ) {
+	return (
+		<>
+			{ ! RichText.isEmpty( attributes.kickerText ) && (
+				<small className="superheading__kicker">
+					<RichText.Content value={ attributes.kickerText } />
+				</small>
+			) }
+			<span className="superheading__main">
+				<RichText.Content value={ attributes.mainHeadingText } />
+			</span>
+			{ ! RichText.isEmpty( attributes.subheadingText ) && (
+				<small className="superheading__subheading">
+					<RichText.Content value={ attributes.subheadingText } />
+				</small>
+			) }
+		</>
+	);
+}
+
 /**
  * Render the static block
  *
@@ -19,18 +39,17 @@ export default function save( { attributes } ) {
 			{ ...useBlockProps.save() }
 			className={ 'has-text-align-' + attributes.textAlign }
 		>
-			{ ! RichText.isEmpty( attributes.kickerText ) && (
-				<small className="superheading__kicker">
-					<RichText.Content value={ attributes.kickerText } />
-				</small>
+			{ ( attributes.href == '' ) && (
+				<TextContent attributes={ attributes } />
 			) }
-			<span className="superheading__main">
-				<RichText.Content value={ attributes.mainHeadingText } />
-			</span>
-			{ ! RichText.isEmpty( attributes.subheadingText ) && (
-				<small className="superheading__subheading">
-					<RichText.Content value={ attributes.subheadingText } />
-				</small>
+			{ ( attributes.href != '' ) && (
+				<a
+					className='superheading__link'
+					href={ attributes.href }
+					target={ attributes.linkToNewWindow ? '_blank' : '_self' }
+				>
+					<TextContent attributes={ attributes } />
+				</a>
 			) }
 		</TagName>
 	);
