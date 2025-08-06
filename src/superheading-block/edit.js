@@ -29,7 +29,7 @@ function TextContent( { attributes, setAttributes } ) {
 				value={ attributes.kickerText }
 				placeholder={ __(
 					'Add pre-heading…',
-					'aldavigdis-superheading-block'
+					'superheading-block'
 				) }
 				onChange={ ( newKicker ) =>
 					setAttributes( { kickerText: newKicker } )
@@ -44,7 +44,7 @@ function TextContent( { attributes, setAttributes } ) {
 				value={ attributes.mainHeadingText }
 				placeholder={ __(
 					'Add heading…',
-					'aldavigdis-superheading-block'
+					'superheading-block'
 				) }
 				onChange={ ( newMainHeading ) =>
 					setAttributes( { mainHeadingText: newMainHeading } )
@@ -59,7 +59,7 @@ function TextContent( { attributes, setAttributes } ) {
 				value={ attributes.subheadingText }
 				placeholder={ __(
 					'Add sub-heading…',
-					'aldavigdis-superheading-block'
+					'superheading-block'
 				) }
 				onChange={ ( newSubheading ) =>
 					setAttributes( { subheadingText: newSubheading } )
@@ -98,7 +98,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Hyperlink', 'aldavigdis-superheading-block' ) }
+					title={ __( 'Hyperlink', 'superheading-block' ) }
 				>
 					<TextControl
 						__next40pxDefaultSize={ true }
@@ -107,12 +107,12 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ attributes.href }
 						label={ __(
 							'Web Address',
-							'aldavigdis-superheading-block'
+							'superheading-block'
 						) }
 						type='url'
 						help={ __(
 							"If set, the heading will link to this URL. Don't forget to prefix it with https:// or mailto: if needed.",
-							'aldavigdis-superheading-block'
+							'superheading-block'
 						) }
 						onChange={ ( newHref ) =>
 							setAttributes( { href: newHref } )
@@ -122,7 +122,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						__nextHasNoMarginBottom={ true }
 						label={ __(
 							'Open in new window',
-							'aldavigdis-superheading-block'
+							'superheading-block'
 						) }
 						checked={ attributes.linkToNewWindow }
 						onChange={ ( newLinkToNewWindow ) =>
